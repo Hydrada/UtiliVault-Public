@@ -15,8 +15,8 @@ class GoogleDriveAuthTests(unittest.TestCase):
             token_file.write_text(
                 json.dumps(
                     {
-                        "token": "expired-access-token",
-                        "refresh_token": "long-lived-refresh-token",
+                        "token": "TEST_EXPIRED_ACCESS_TOKEN",
+                        "refresh_token": "TEST_REFRESH_TOKEN",
                         "token_uri": "https://oauth2.googleapis.com/token",
                         "client_id": "client-id",
                         "client_secret": "client-secret",
@@ -28,10 +28,10 @@ class GoogleDriveAuthTests(unittest.TestCase):
             )
             credentials = Mock()
             credentials.expired = True
-            credentials.refresh_token = "long-lived-refresh-token"
+            credentials.refresh_token = "TEST_REFRESH_TOKEN"
 
             def refresh(_request):
-                credentials.token = "fresh-access-token"
+                credentials.token = "TEST_FRESH_ACCESS_TOKEN"
                 credentials.expiry = datetime(2030, 1, 1, tzinfo=timezone.utc)
 
             credentials.refresh.side_effect = refresh
@@ -46,8 +46,8 @@ class GoogleDriveAuthTests(unittest.TestCase):
 
             saved = json.loads(token_file.read_text(encoding="utf-8"))
             self.assertIs(credentials, result)
-            self.assertEqual("fresh-access-token", saved["token"])
-            self.assertEqual("long-lived-refresh-token", saved["refresh_token"])
+            self.assertEqual("TEST_FRESH_ACCESS_TOKEN", saved["token"])
+            self.assertEqual("TEST_REFRESH_TOKEN", saved["refresh_token"])
             self.assertEqual([], list(Path(root).glob(".oauth_token.json.*")))
 
 
