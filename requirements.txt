@@ -1,0 +1,13 @@
+# UtiliVault runtime dependencies (portable bundle + home PC)
+anthropic
+python-dotenv
+Pillow
+numpy
+opencv-python; platform_system == "Windows"
+opencv-python-headless; platform_system != "Windows"
+PyMuPDF
+requests
+google-api-python-client
+google-auth
+google-auth-oauthlib
+flask

@@ -1,0 +1,12 @@
+[Unit]
+Description=Check UtiliVault watcher freshness and send configured alert
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/utilivault
+ExecStart=/usr/bin/docker compose -f deploy/cloud/compose.yaml run --rm watcher python cloud_runtime.py monitor --max-age 900
+StandardOutput=journal
+StandardError=journal
+

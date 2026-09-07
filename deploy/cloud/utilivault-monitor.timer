@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitor UtiliVault watcher every ten minutes
+
+[Timer]
+OnBootSec=12min
+OnUnitActiveSec=10min
+AccuracySec=30s
+Persistent=true
+Unit=utilivault-monitor.service
+
+[Install]
+WantedBy=timers.target
+

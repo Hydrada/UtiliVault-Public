@@ -1,0 +1,13 @@
+[Unit]
+Description=Run UtiliVault picture intake every five minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+AccuracySec=15s
+Persistent=true
+Unit=utilivault-watcher.service
+
+[Install]
+WantedBy=timers.target
+

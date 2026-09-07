@@ -1,0 +1,56 @@
+# Environment and credentials
+.env
+.env.*
+!.env.example
+oauth_client.json
+oauth_token*.json
+oauth_state*.json
+oauth_*.json.lock
+service_account*.json
+vision_sa_key.json
+*.pem
+*.key
+
+# Runtime data and customer artifacts
+db/records.db
+scans/
+output/
+state/
+tmp/
+tiecard_previews/
+testing/
+preservation/
+portable/
+dist/
+*.log
+*_log.txt
+*.apk
+*.bak-*
+
+# Internal notes, handoffs, and machine metadata
+.claude/
+.codex-remote-attachments/
+.codex/
+.graphify/
+graphify-vault-source/
+GROK_HANDOFF.md
+CHATGPT_*.md
+CODEX_*.md
+AGENTS.md
+CLAUDE.md*
+
+# Python and JavaScript build/runtime state
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+node_modules/
+.expo/
+
+# Local exports and editor files
+UtiliVault-Public-export/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

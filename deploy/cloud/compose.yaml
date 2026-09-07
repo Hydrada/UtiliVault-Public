@@ -1,0 +1,19 @@
+services:
+  watcher:
+    image: utilivault-watcher:${UTILIVAULT_IMAGE_TAG:-local}
+    build:
+      context: ../..
+      dockerfile: deploy/cloud/Dockerfile
+    env_file:
+      - /etc/utilivault/runtime.env
+    environment:
+      UTILIVAULT_CLOUD_RUNTIME: "1"
+      UTILIVAULT_HOME: /var/lib/utilivault
+      UTILIVAULT_STATE_DIR: /var/lib/utilivault/state
+      UTILIVAULT_SECRETS_DIR: /run/secrets/utilivault
+    volumes:
+      - /var/lib/utilivault:/var/lib/utilivault
+      - /etc/utilivault/secrets:/run/secrets/utilivault
+    network_mode: bridge
+    restart: "no"
+

@@ -1,0 +1,11 @@
+anthropic==0.112.0
+python-dotenv==1.2.2
+Pillow==12.3.0
+numpy==2.4.4
+opencv-python-headless==4.10.0.84
+PyMuPDF==1.28.0
+requests==2.34.2
+google-api-python-client==2.198.0
+google-auth==2.55.1
+google-auth-oauthlib==1.4.0
+Flask==3.1.3

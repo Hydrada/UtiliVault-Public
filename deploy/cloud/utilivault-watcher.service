@@ -1,0 +1,17 @@
+[Unit]
+Description=UtiliVault Drive picture-intake pass
+Wants=network-online.target
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/utilivault
+ExecStart=/usr/bin/docker compose -f deploy/cloud/compose.yaml run --rm watcher
+TimeoutStartSec=25min
+Nice=5
+
+# Journald keeps stdout/stderr; cloud_runtime.py emits structured state events.
+StandardOutput=journal
+StandardError=journal
+
